@@ -16,11 +16,11 @@ if (process.env.IS_LOCALHOST !== 'true') {
 
             Knex.seed.run().then(() => {
                 startServer();
-                
+
             }).catch((error) => {
                 console.log(error);
             });
-            
+
         }).catch((error) => {
             console.log(error);
         });
