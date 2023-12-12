@@ -3,14 +3,12 @@ import { StatusCodes } from 'http-status-codes';
 import { AnyObject, Maybe, ObjectSchema, ValidationError } from 'yup';
 
 type TProperty = 'body' | 'header' | 'params' | 'query';
-
-type TGetSchema = <T extends Maybe<AnyObject>>(schema: ObjectSchema<T>) => ObjectSchema<T>;
-
 type TAllSchemas = Record<TProperty, ObjectSchema<any>>;
-
-type TGetAllSchemas = (getSchema: TGetSchema) => Partial<TAllSchemas>;
-
 type TValidation = (getAllSchemas: TGetAllSchemas) => RequestHandler;
+
+// os tipos a seguir servem para garadir  que o esquema uitlizado tenha uma tipagem especifica
+type TGetSchema = <T extends Maybe<AnyObject>>(schema: ObjectSchema<T>) => ObjectSchema<T>;
+type TGetAllSchemas = (getSchema: TGetSchema) => Partial<TAllSchemas>;
 
 export const validation: TValidation = (getAllSchemas) => async (req, res, next) => {
 
