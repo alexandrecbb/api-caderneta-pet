@@ -8,7 +8,7 @@ export const seed = async (knex: Knex) => {
 
     await knex(ETableNames.animals).insert(animalsToInsert);
 };
-const animalsToInsert = [
+export const animalsToInsert = [
     {
         'name': 'Floki',
         'birth': '2023-03-05',

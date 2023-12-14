@@ -12,7 +12,7 @@ export async function up(knex: Knex) {
             table.date('reinforcement').index().notNullable();
             table.string('responsible', 100).checkLength('<=', 100).index().notNullable();
             table
-                .bigInteger('animals_id')
+                .bigInteger('animal_id')
                 .index()
                 .notNullable()
                 .references('id').inTable(ETableNames.animals)
