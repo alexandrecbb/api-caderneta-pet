@@ -3,7 +3,7 @@ import { StatusCodes } from 'http-status-codes';
 import * as yup from 'yup';
 
 import { validation } from '../../shared/middleware';
-import { AnimalsProvider } from '../../database/providers/animals';
+import { AnimalProvider } from '../../database/providers/animal';
 
 
 interface IParamProps {
@@ -25,7 +25,7 @@ export const getById = async (req: Request<IParamProps>, res: Response) => {
         });
     }
 
-    const result = await AnimalsProvider.getById(req.params.id);
+    const result = await AnimalProvider.getById(req.params.id);
     if (result instanceof Error) {
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
             errors: {

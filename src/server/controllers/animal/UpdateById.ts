@@ -3,19 +3,26 @@ import { StatusCodes } from 'http-status-codes';
 import * as yup from 'yup';
 
 import { validation } from '../../shared/middleware';
+import { IAnimal } from '../../database/models';
 import { AnimalProvider } from '../../database/providers/animal';
 
 
 interface IParamProps {
     id?: number;
 }
-export const deleteByIdValidation = validation(getSchema => ({
+interface IBodyProps extends Omit<IAnimal, 'id'> {
+    name: string;
+}
+export const updateByIdValidation = validation(getSchema => ({
+    body: getSchema<IBodyProps>(yup.object().shape({
+        name: yup.string().required().min(3),
+    })),
     params: getSchema<IParamProps>(yup.object().shape({
         id: yup.number().integer().required().moreThan(0),
     })),
 }));
 
-export const deleteById = async (req: Request<IParamProps>, res: Response) => {
+export const updateById = async (req: Request<IParamProps, {}, IBodyProps>, res: Response) => {
 
     if (!req.params.id) {
         return res.status(StatusCodes.BAD_REQUEST).json({
@@ -25,7 +32,7 @@ export const deleteById = async (req: Request<IParamProps>, res: Response) => {
         });
     }
 
-    const result = await AnimalProvider.deleteById(req.params.id);
+    const result = await AnimalProvider.updateById(req.params.id, req.body);
     if (result instanceof Error) {
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
             errors: {
@@ -34,5 +41,5 @@ export const deleteById = async (req: Request<IParamProps>, res: Response) => {
         });
     }
 
-    return res.status(StatusCodes.NO_CONTENT).send();
+    return res.status(StatusCodes.NO_CONTENT).json(result);
 };

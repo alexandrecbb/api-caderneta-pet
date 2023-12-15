@@ -9,17 +9,17 @@ export const seed = async (knex: Knex) => {
 
 
 
-    for (let i = 1; i < animalsToInsert.length; i++) {
+    for (let i = 1; i < animalsToInsert.length + 1; i++) {
 
-        for (let u = 0; u < vaccines.length; u++) {
-            vaccines[u].animal_id = i;
+        for (let u = 0; u < vaccinesToInsert.length; u++) {
+            vaccinesToInsert[u].animal_id = i;
         }
 
-        await knex(ETableNames.vaccines).insert(vaccines);
+        await knex(ETableNames.vaccines).insert(vaccinesToInsert);
     }
     
 };
-const vaccines = [
+const vaccinesToInsert = [
     {
         'name': 'Nobivac Dhpp+L',
         'application': '2023-04-20',

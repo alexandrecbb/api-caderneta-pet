@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { AnimalsController, VaccinesController, AntiparasiticsController, DewormingController, UsersController } from '../controllers';
+import { AnimalController, VaccinesController, AntiparasiticsController, DewormingController, UsersController } from '../controllers';
 import { ensureAuthenticate } from '../shared/middleware';
 
 const router = Router();
@@ -9,11 +9,11 @@ router.get('/', (_, res) => {
     return res.send('Rodando!');
 });
 
-router.get('/animals', ensureAuthenticate, AnimalsController.getAllValidation, AnimalsController.getAll);
-router.post('/animals', ensureAuthenticate, AnimalsController.createValidation, AnimalsController.create);
-router.get('/animals/:id', ensureAuthenticate, AnimalsController.getByIdValidation, AnimalsController.getById);
-router.put('/animals/:id', ensureAuthenticate, AnimalsController.updateByIdValidation, AnimalsController.updateById);
-router.delete('/animals/:id', ensureAuthenticate, AnimalsController.deleteByIdValidation, AnimalsController.deleteById);
+router.get('/animal', ensureAuthenticate, AnimalController.getAllValidation, AnimalController.getAll);
+router.post('/animal', ensureAuthenticate, AnimalController.createValidation, AnimalController.create);
+router.get('/animal/:id', ensureAuthenticate, AnimalController.getByIdValidation, AnimalController.getById);
+router.put('/animal/:id', ensureAuthenticate, AnimalController.updateByIdValidation, AnimalController.updateById);
+router.delete('/animal/:id', ensureAuthenticate, AnimalController.deleteByIdValidation, AnimalController.deleteById);
 
 router.get('/vaccines', ensureAuthenticate, VaccinesController.getAllValidation, VaccinesController.getAll);
 router.post('/vaccines', ensureAuthenticate, VaccinesController.createValidation, VaccinesController.create);

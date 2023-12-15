@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
-import { AnimalsProvider } from '../../database/providers/animals';
+import { AnimalProvider } from '../../database/providers/animal';
 import { validation } from '../../shared/middleware';
 import { IAnimal } from '../../database/models/Animal';
 
@@ -23,7 +23,7 @@ export const createValidation = validation((getSchema) => ({
 
 export const create = async (req: Request<{}, {}, IAnimal>, res: Response) => {
 
-    const result = await AnimalsProvider.create(req.body);
+    const result = await AnimalProvider.create(req.body);
 
     if(result instanceof Error) {
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(
