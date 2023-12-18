@@ -1,4 +1,4 @@
-import { server } from './server/Sever';
+import { server } from './server/Server';
 import { Knex } from './server/database/knex';
 
 

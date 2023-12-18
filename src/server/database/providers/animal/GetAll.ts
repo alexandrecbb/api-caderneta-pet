@@ -4,7 +4,7 @@ import { Knex } from '../../knex';
 
 export const getAll = async () => {
     try {
-        const result = await Knex(ETableNames.animals)
+        const result = await Knex(ETableNames.animal)
             .select('*')
             .from('animals');
 

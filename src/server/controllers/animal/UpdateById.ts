@@ -10,15 +10,22 @@ import { AnimalProvider } from '../../database/providers/animal';
 interface IParamProps {
     id?: number;
 }
-interface IBodyProps extends Omit<IAnimal, 'id'> {
-    name: string;
+interface IBodyProps {
+    name?: string;
+    birth?: Date;
+    gender?: string;
+    kind?: string;
+    race?: string;
+    hair?: string;
 }
 export const updateByIdValidation = validation(getSchema => ({
     body: getSchema<IBodyProps>(yup.object().shape({
-        name: yup.string().required().min(3),
-    })),
-    params: getSchema<IParamProps>(yup.object().shape({
-        id: yup.number().integer().required().moreThan(0),
+        name: yup.string().optional().min(3).max(45), 
+        birth: yup.date().optional(),
+        gender: yup.string().optional().min(3).max(45),
+        kind: yup.string().optional().min(3).max(45),
+        race: yup.string().optional().min(3).max(45),
+        hair: yup.string().optional().min(3).max(45),            
     })),
 }));
 
