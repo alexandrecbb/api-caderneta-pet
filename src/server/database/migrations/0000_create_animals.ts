@@ -5,7 +5,7 @@ import { ETableNames } from '../ETableNames';
 export async function up(knex: Knex) {
     return knex
         .schema
-        .createTable(ETableNames.animals, table => {
+        .createTable(ETableNames.animal, table => {
             table.bigIncrements('id').primary().index();
             table.string('name', 45).checkLength('<=', 45).index().notNullable();
             table.date('birth').index().notNullable();
@@ -16,7 +16,7 @@ export async function up(knex: Knex) {
 
             table.comment('Tabela usada para armazenar animais no sistema');
         })
-        .then(() => console.log(`Created table ${ETableNames.animals}`));
+        .then(() => console.log(`Created table ${ETableNames.animal}`));
 
 }
 
@@ -24,7 +24,7 @@ export async function up(knex: Knex) {
 export async function down(knex: Knex) {
     return knex
         .schema
-        .dropTable(ETableNames.animals)
-        .then(() => console.log(`Dropped table ${ETableNames.animals}`));
+        .dropTable(ETableNames.animal)
+        .then(() => console.log(`Dropped table ${ETableNames.animal}`));
 }   
 

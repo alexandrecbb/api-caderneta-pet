@@ -3,7 +3,7 @@ import { StatusCodes } from 'http-status-codes';
 import * as yup from 'yup';
 
 import { validation } from '../../shared/middleware';
-import { IAnimal } from '../../database/models';
+
 import { AnimalProvider } from '../../database/providers/animal';
 
 

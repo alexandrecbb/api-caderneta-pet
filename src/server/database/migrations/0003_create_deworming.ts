@@ -15,7 +15,7 @@ export async function up(knex: Knex) {
                 .bigInteger('animal_id')
                 .index()
                 .notNullable()
-                .references('id').inTable(ETableNames.animals)
+                .references('id').inTable(ETableNames.animal)
                 .onUpdate('CASCADE')
                 .onDelete('RESTRICT');
 

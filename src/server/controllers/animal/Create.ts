@@ -13,7 +13,7 @@ export const createValidation = validation((getSchema) => ({
     body: getSchema<IBodyProps>(yup.object().shape({
         name: yup.string().required().min(3).max(45), 
         birth: yup.date().required(),
-        gender: yup.string().required().min(3).max(45),
+        gender: yup.string().required().min(1).max(1),
         kind: yup.string().required().min(3).max(45),
         race: yup.string().required().min(3).max(45),
         hair: yup.string().required().min(3).max(45),            

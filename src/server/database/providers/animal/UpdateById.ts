@@ -2,8 +2,9 @@ import { ETableNames } from '../../ETableNames';
 import { IAnimal } from '../../models';
 import { Knex } from '../../knex';
 
+interface IAnimalUpdate extends Partial<IAnimal> {}
 
-export const updateById = async (id: number, animal: Omit<IAnimal, 'id'>): Promise<void | Error> => {
+export const updateById = async (id: number, animal: Omit<IAnimalUpdate, 'id'>): Promise<void | Error> => {
     try {
         const result = await Knex(ETableNames.animal)
             .update(animal)

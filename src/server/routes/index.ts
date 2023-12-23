@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { AnimalController} from '../controllers';
+import { AnimalController, UsersController} from '../controllers';
 import { ensureAuthenticate } from '../shared/middleware';
 
 const router = Router();
@@ -33,8 +33,8 @@ router.delete('/animal/:id', ensureAuthenticate, AnimalController.deleteByIdVali
 // router.put('/deworming/:id', ensureAuthenticate, DewormingController.updateByIdValidation, DewormingController.updateById);
 // router.delete('/deworming/:id', ensureAuthenticate, DewormingController.deleteByIdValidation, DewormingController.deleteById);
 
-// router.post('/enter', UsersController.signInValidation, UsersController.signIn);
-// router.post('/register', UsersController.signUpValidation, UsersController.signUp);
+router.post('/enter', UsersController.signInValidation, UsersController.signIn);
+router.post('/register', UsersController.signUpValidation, UsersController.signUp);
 
 
 export { router };
