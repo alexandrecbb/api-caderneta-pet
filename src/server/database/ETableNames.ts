@@ -1,7 +1,7 @@
 export enum ETableNames {
     animal = 'animal',
-    vaccines = 'vaccines',
+    vaccine = 'vaccine',
     deworming = 'deworming',
-    ectoparasiticides = 'ectoparasiticides',
+    ectoparasiticide = 'ectoparasiticide',
     user = 'user'
 }

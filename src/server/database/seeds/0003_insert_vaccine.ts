@@ -1,25 +1,25 @@
 import { Knex } from 'knex';
 import { ETableNames } from '../ETableNames';
-import { animalsToInsert } from '../seeds/0000_insert_animals';
+import { animalsToInsert } from './0000_insert_animals';
 
 
 export const seed = async (knex: Knex) => {
-    const [{ count }] = await knex(ETableNames.vaccines).count<[{ count: number }]>('* as count');
+    const [{ count }] = await knex(ETableNames.vaccine).count<[{ count: number }]>('* as count');
     if (!Number.isInteger(count) || Number(count) > 0) return;
 
 
 
     for (let i = 1; i < animalsToInsert.length + 1; i++) {
 
-        for (let u = 0; u < vaccinesToInsert.length; u++) {
-            vaccinesToInsert[u].animal_id = i;
+        for (let u = 0; u < vaccineToInsert.length; u++) {
+            vaccineToInsert[u].animal_id = i;
         }
 
-        await knex(ETableNames.vaccines).insert(vaccinesToInsert);
+        await knex(ETableNames.vaccine).insert(vaccineToInsert);
     }
     
 };
-const vaccinesToInsert = [
+const vaccineToInsert = [
     {
         'name': 'Nobivac Dhpp+L',
         'application': '2023-04-20',

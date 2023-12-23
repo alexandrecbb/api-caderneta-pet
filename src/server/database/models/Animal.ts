@@ -1,7 +1,7 @@
 export interface IAnimal {
     id: number;
     name: string;
-    birth: Date;
+    birth: string;
     gender: string;
     kind: string;
     race: string; 

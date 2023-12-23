@@ -5,7 +5,7 @@ import { ETableNames } from '../ETableNames';
 export async function up(knex: Knex) {
     return knex
         .schema
-        .createTable(ETableNames.vaccines, table => {
+        .createTable(ETableNames.vaccine, table => {
             table.bigIncrements('id').primary().index();
             table.string('name', 45).checkLength('<=', 45).index().notNullable();
             table.date('application').index().notNullable();
@@ -21,7 +21,7 @@ export async function up(knex: Knex) {
 
             table.comment('Tabela usada para armazenar vacinações no sistema');
         })
-        .then(() => console.log(`Created table ${ETableNames.vaccines}`));
+        .then(() => console.log(`Created table ${ETableNames.vaccine}`));
 
 }
 
@@ -29,7 +29,7 @@ export async function up(knex: Knex) {
 export async function down(knex: Knex) {
     return knex
         .schema
-        .dropTable(ETableNames.vaccines)
-        .then(() => console.log(`Dropped table ${ETableNames.vaccines}`));
+        .dropTable(ETableNames.vaccine)
+        .then(() => console.log(`Dropped table ${ETableNames.vaccine}`));
 }   
 

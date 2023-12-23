@@ -12,7 +12,7 @@ interface IParamProps {
 }
 interface IBodyProps {
     name?: string;
-    birth?: Date;
+    birth?: string;
     gender?: string;
     kind?: string;
     race?: string;
@@ -21,7 +21,7 @@ interface IBodyProps {
 export const updateByIdValidation = validation(getSchema => ({
     body: getSchema<IBodyProps>(yup.object().shape({
         name: yup.string().optional().min(3).max(45), 
-        birth: yup.date().optional(),
+        birth: yup.string().optional(),
         gender: yup.string().optional().min(3).max(45),
         kind: yup.string().optional().min(3).max(45),
         race: yup.string().optional().min(3).max(45),

@@ -8,10 +8,11 @@ export const seed = async (knex: Knex) => {
 
     await knex(ETableNames.animal).insert(animalsToInsert);
 };
+
 export const animalsToInsert = [
     {
         'name': 'Floki',
-        'birth': new Date('2023-03-05'),
+        'birth': '2023-03-05',
         'gender': 'M',
         'kind': 'Cão',
         'race': 'Splitz Alemão',
@@ -19,7 +20,7 @@ export const animalsToInsert = [
     },
     {
         'name': 'Capitú',
-        'birth': new Date('2021-11-17'),
+        'birth':'2021-11-17',
         'gender': 'F',
         'kind': 'Canis lupus familiaris',
         'race': 'Pastor Alemão',
@@ -27,7 +28,7 @@ export const animalsToInsert = [
     },
     {
         'name': 'Babalu',
-        'birth': new Date('2022-11-16'),
+        'birth': '2022-11-16',
         'gender': 'F',
         'kind': 'Canis lupus familiaris',
         'race': 'Fila Brasileiro',
@@ -35,7 +36,7 @@ export const animalsToInsert = [
     },
     {
         'name': 'Juju',
-        'birth': new Date('2020-10-08'),
+        'birth': '2020-10-08',
         'gender': 'F',
         'kind': 'Canis lupus familiaris',
         'race': 'Pinscher',
@@ -43,7 +44,7 @@ export const animalsToInsert = [
     },
     {
         'name': 'Tete',
-        'birth': new Date('2023-07-12'),
+        'birth': '2023-07-12',
         'gender': 'M',
         'kind': 'Canis lupus familiaris',
         'race': 'Pinscher',
@@ -51,7 +52,7 @@ export const animalsToInsert = [
     },
     {
         'name': 'Jubileu',
-        'birth': new Date('2022-03-22'),
+        'birth': '2022-03-22',
         'gender': 'M',
         'kind': 'Canis lupus familiaris',
         'race': 'Splitz Alemão',

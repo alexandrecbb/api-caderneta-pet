@@ -8,7 +8,7 @@ export async function up(knex: Knex) {
         .createTable(ETableNames.animal, table => {
             table.bigIncrements('id').primary().index();
             table.string('name', 45).checkLength('<=', 45).index().notNullable();
-            table.date('birth').index().notNullable();
+            table.string('birth').index().notNullable();
             table.enum('gender', ['M', 'F']).index().notNullable();
             table.string('kind', 45).checkLength('<=', 45).index().notNullable();
             table.string('race', 45).checkLength('<=', 45).index().notNullable();
