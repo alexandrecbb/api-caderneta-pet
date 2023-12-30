@@ -6,7 +6,7 @@ export const getAll = async () => {
     try {
         const result = await Knex(ETableNames.animal)
             .select('*')
-            .from('animals');
+            .from('animal');
 
         return result;
     } catch (error) {
