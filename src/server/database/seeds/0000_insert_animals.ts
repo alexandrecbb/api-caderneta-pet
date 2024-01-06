@@ -13,7 +13,7 @@ export const animalsToInsert = [
     {
         'name': 'Floki',
         'birth': '2023-03-05',
-        'gender': 'M',
+        'gender': 'Macho',
         'kind': 'Cão',
         'race': 'Splitz Alemão',
         'hair': 'Black and Tan'
@@ -21,7 +21,7 @@ export const animalsToInsert = [
     {
         'name': 'Capitú',
         'birth':'2021-11-17',
-        'gender': 'F',
+        'gender': 'Fêmea',
         'kind': 'Canis lupus familiaris',
         'race': 'Pastor Alemão',
         'hair': 'Capa preta '
@@ -29,7 +29,7 @@ export const animalsToInsert = [
     {
         'name': 'Babalu',
         'birth': '2022-11-16',
-        'gender': 'F',
+        'gender': 'Fêmea',
         'kind': 'Canis lupus familiaris',
         'race': 'Fila Brasileiro',
         'hair': 'Preta'
@@ -37,7 +37,7 @@ export const animalsToInsert = [
     {
         'name': 'Juju',
         'birth': '2020-10-08',
-        'gender': 'F',
+        'gender': 'Fêmea',
         'kind': 'Canis lupus familiaris',
         'race': 'Pinscher',
         'hair': 'Black and Tan'
@@ -45,7 +45,7 @@ export const animalsToInsert = [
     {
         'name': 'Tete',
         'birth': '2023-07-12',
-        'gender': 'M',
+        'gender': 'Macho',
         'kind': 'Canis lupus familiaris',
         'race': 'Pinscher',
         'hair': 'Black and Tan'
@@ -53,7 +53,7 @@ export const animalsToInsert = [
     {
         'name': 'Jubileu',
         'birth': '2022-03-22',
-        'gender': 'M',
+        'gender': 'Macho',
         'kind': 'Canis lupus familiaris',
         'race': 'Splitz Alemão',
         'hair': 'Branca'

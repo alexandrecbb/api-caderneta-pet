@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { AnimalController, UsersController} from '../controllers';
+import { AnimalController, UsersController, VaccineController} from '../controllers';
 import { ensureAuthenticate } from '../shared/middleware';
 
 const router = Router();
@@ -16,10 +16,10 @@ router.put('/animal/:id', ensureAuthenticate, AnimalController.updateByIdValidat
 router.delete('/animal/:id', ensureAuthenticate, AnimalController.deleteByIdValidation, AnimalController.deleteById);
 
 // router.get('/vaccines', ensureAuthenticate, VaccinesController.getAllValidation, VaccinesController.getAll);
-// router.post('/vaccines', ensureAuthenticate, VaccinesController.createValidation, VaccinesController.create);
-// router.get('/vaccines/:id', ensureAuthenticate, VaccinesController.getByIdValidation, VaccinesController.getById);
-// router.put('/vaccines/:id', ensureAuthenticate, VaccinesController.updateByIdValidation, VaccinesController.updateById);
-// router.delete('/vaccines/:id', ensureAuthenticate, VaccinesController.deleteByIdValidation, VaccinesController.deleteById);
+router.post('/vaccines', ensureAuthenticate, VaccineController.createValidation, VaccineController.create);
+// router.get('/vaccines/:id', ensureAuthenticate, VaccineController.getByIdValidation, VaccineController.getById);
+// router.put('/vaccines/:id', ensureAuthenticate, VaccineController.updateByIdValidation, VaccineController.updateById);
+// router.delete('/vaccines/:id', ensureAuthenticate, VaccineController.deleteByIdValidation, VaccineController.deleteById);
 
 // router.get('/antiparasitics', ensureAuthenticate, AntiparasiticsController.getAllValidation, AntiparasiticsController.getAll);
 // router.post('/antiparasitics', ensureAuthenticate, AntiparasiticsController.createValidation, AntiparasiticsController.create);
